@@ -9,6 +9,20 @@ if node[:opsworks][:instance][:layers].any?{ |layer| ['java-app'].include?(layer
   action :create
  end
 
+ directory "/home/pp/data/historic" do
+  owner "root"
+  group "root"
+  mode 00777
+  action :create
+ end
+ 
+  directory "/home/pp/data/historic/proc" do
+  owner "root"
+  group "root"
+  mode 00777
+  action :create
+ end
+ 
 end
 
 Chef::Log.info("Times: Setting data folder")
